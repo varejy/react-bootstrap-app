@@ -5,9 +5,11 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import compression from 'compression';
 import expressStaticGzip from 'express-static-gzip';
-import { redirectToHTTPS } from 'express-http-to-https';
 import { renderToString } from 'react-dom/server';
 
+import map from '@tinkoff/utils/array/map';
+
+import exampleApi from './api/example';
 import actions from './actions';
 import getStore from '../src/store/getStore';
 import renderPage from '../index';
@@ -17,14 +19,9 @@ import { StaticRouter } from 'react-router-dom';
 import Helmet from 'react-helmet';
 import App from '../src/App.jsx';
 
-const ignoreHttpsHosts = [/localhost:(\d{4})/];
-
 const rootPath = path.resolve(__dirname, '..');
 const PORT = process.env.PORT || 3000;
 const app = express();
-
-// redirects
-app.use(redirectToHTTPS(ignoreHttpsHosts, [], 301));
 
 // static
 app.get(/\.chunk\.(js|css)$/, expressStaticGzip(rootPath, {
@@ -37,14 +34,19 @@ app.use(express.static(rootPath));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
+// api
+app.use('/api/example', exampleApi);
+
 // index
 app.get('*', function (req, res) {
     const store = getStore();
 
-    Promise.all(actions.map(actionFunc => {
-        return actionFunc(req)
-            .then(action => store.dispatch(action));
-    }))
+    Promise.all(map(
+        actionFunc => {
+            return actionFunc(req)(store.dispatch)
+        },
+        actions
+    ))
         .then(() => {
             const context = {};
             const html = renderToString(
