@@ -1,7 +1,5 @@
 # react-bootstrap-app
 
-Тест
-
 ### Описание
 Это bootstrap приложение для разработки новых проектов компании [Stubbs](https://stubbs.pro/)
 
