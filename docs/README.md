@@ -1,16 +1,13 @@
-# Tinkoff Mvno Forms
-*@pfp-forms/mvno-forms*
-
-:heart: :iphone: :heart_eyes:
+# react-bootstrap-app
 
 ### Описание
-В данной документации описаны общие моменты о работе клиентских **форм Тинькофф Мвно**,
-а так-же некоторые ньюансы по работе в репозитории **pfp/mvno-forms**.
+Это bootstrap приложение для разработки новых проектов компании [Stubbs](https://stubbs.pro/)
 
-По любым вопросам и предложениям по доке писать в слак `@ext.vryabchich`
-
-### Сторибук
-https://pfp.gitlab-rnd.tcsbank.ru/mvno-forms/storybook/
+### Технологии
+* Фронт - ReactJs, Redux
+* Бэк - NodeJs
+* Сборка - Webpack
+* SPA, SSR
 
 ### Репозиторий
-https://gitlab-rnd.tcsbank.ru/pfp/mvno-forms
+https://github.com/sosedisverhu/react-bootstrap-app
