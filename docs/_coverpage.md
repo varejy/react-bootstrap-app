@@ -18,4 +18,4 @@ fill="#000000" stroke="none">
 
 ### ReactJs, Redux, NodeJs, SPA, SSR
 
-[Открыть репозиторий с формой](https://github.com/sosedisverhu/react-bootstrap-app)
+[Открыть репозиторий](https://github.com/sosedisverhu/react-bootstrap-app)
