@@ -9,7 +9,7 @@ export default function getPoints () {
         .get('/api/example/get-points')
         .then(payload => {
             const points = prop('body', payload);
-            console.log(points, dispatch);
+
             return dispatch(setPoints(points));
         })
         .catch(err => console.log(err))
