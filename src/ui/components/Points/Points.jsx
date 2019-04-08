@@ -34,6 +34,7 @@ class Points extends Component {
         const { points } = this.props;
 
         return <section className={styles.container}>
+            <h2>Технологии!</h2>
             <ul>
                 { points.map((point, i) => <li className={styles.point} key={i}>{point}</li>) }
             </ul>
