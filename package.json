@@ -63,7 +63,7 @@
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.11",
     "find-package": "^1.0.0",
-    "forever": "^0.15.3",
+    "forever": "0.15.3",
     "json-loader": "^0.5.7",
     "optimize-js-plugin": "0.0.4",
     "postcss-at-rules-variables": "^0.1.6",
