@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { connect } from 'react-redux';
@@ -36,6 +37,10 @@ class Points extends Component {
         return <section className={styles.container}>
             <ul>
                 { points.map((point, i) => <li className={styles.point} key={i}>{point}</li>) }
+            </ul>
+            <hr/>
+            <ul>
+                <li><Link to="/">Home</Link></li>
             </ul>
         </section>;
     }
