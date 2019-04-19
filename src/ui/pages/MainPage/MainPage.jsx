@@ -10,7 +10,7 @@ class MainPage extends Component {
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/description">Description</Link></li>
                 <li><Link to="/points">Points</Link></li>
-                <li><Link to="/test">test</Link></li>
+                <li><Link to="/test">Test</Link></li>
             </ul>
         );
     }

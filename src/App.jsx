@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import media from './ui/hocs/media/media.jsx';
 
@@ -17,4 +17,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default withRouter(App);

@@ -1,6 +1,5 @@
 @import 'reset.css';
 @import 'fonts.css';
-@value greens from '../../../css/colors.css';
 
 * {
     box-sizing: border-box;
