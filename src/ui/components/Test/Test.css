@@ -1,13 +1,7 @@
 @value blackBasic from '../../../css/colors.css';
-@value greens from '../../../css/colors.css';
-
-body{
-    background-color: greens;
-}
 
 .txtElem{
     font-family: HelveticaNeueCyrThin;
-    color: blackBasic;
     font-size: 22px;
     text-align: center;
     margin-top: 10px;

@@ -2,7 +2,6 @@
 
 .title {
     font-family: HelveticaNeueCyr;
-    color: blackBasic;
     font-size: 32px;
     margin-top: 20px;
     text-align: center;
@@ -14,7 +13,6 @@
 
 .description {
     font-family: HelveticaNeueCyrThin;
-    color: blackBasic;
     font-size: 22px;
     text-align: center;
     margin-top: 10px;

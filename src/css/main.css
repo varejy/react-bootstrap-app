@@ -1,13 +1,18 @@
 @import 'reset.css';
 @import 'fonts.css';
+@value violetBasic from './colors.css';
 
 * {
     box-sizing: border-box;
 }
 
+body{
+    background-color: #101010;
+    color: violetBasic;
+}
+
 li{
     font-family: HelveticaNeueCyrThin;
-    color: blackBasic;
     font-size: 22px;
     text-align: center;
     margin-top: 10px;

@@ -9,14 +9,12 @@ import Test from '../../components/Test/Test.jsx';
 class Routs extends Component {
     render () {
         return <main>
-            <ul>
                 <Switch>
                     <Route exact path='/' component={MainPage} />
                     <Route path='/description' component={Description} />
                     <Route path='/test' component={Test} />
                     <Route path='/points' component={Points} />
                 </Switch>
-            </ul>
         </main>;
     }
 }
