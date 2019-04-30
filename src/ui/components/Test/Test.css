@@ -1,8 +1,0 @@
-@value blackBasic from '../../../css/colors.css';
-
-.txtElem{
-    font-family: HelveticaNeueCyrThin;
-    font-size: 22px;
-    text-align: center;
-    margin-top: 10px;
-}

@@ -1,0 +1,102 @@
+
+.header{
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0,0,0,.0975);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    height: 77px;
+    -webkit-box-align: center; 
+    -webkit-align-items: center; 
+    -ms-flex-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.headerContent{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    height: 77px;
+    justify-content: space-between;
+    max-width: 1010px;
+    padding: 26px 20px;
+    width: 100%;
+    align-items: center;
+}
+
+.logs{
+
+}
+
+.imageLog{
+    background: url('https://www.instagram.com/static/bundles/metro/sprite_glyphs_7f5bab945363.png/7f5bab945363.png');
+}
+
+.logsElements{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.logo{
+    background-repeat: no-repeat;
+    background-position: -104px -177px;
+    height: 24px;
+    width: 24px;
+    cursor: pointer;
+}
+
+.break{
+    background-color: #262626;
+    height: 28px;
+    margin: 0 16px;
+    width: 1px;
+}
+
+.headerTitle{
+    background-repeat: no-repeat;
+    background-position: 0 -146px;
+    height: 29px;
+    width: 103px;
+    cursor: pointer;
+}
+
+.headerInput{
+    background-repeat: no-repeat;
+    background-position: -437px -344px;
+}
+
+.headerIcon{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.explore{
+
+}
+.exploreImg{
+
+}
+.activity{
+
+}
+.activityImg{
+
+}
+.profile{
+
+}
+.profileImg{
+
+}
+.icon{
+
+}

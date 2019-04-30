@@ -6,13 +6,13 @@ import media from './ui/hocs/media/media.jsx';
 import '../client/vendor';
 import './css/main.css';
 
-import Routs from './ui/pages/Routers/Routs.jsx';
+import MainPage from "./ui/pages/MainPage/MainPage.jsx"
 
 @media
 class App extends Component {
     render () {
         return <main>
-            <Routs/>
+            <MainPage/>
         </main>;
     }
 }
