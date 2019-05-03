@@ -34,6 +34,11 @@ app.use(express.static(rootPath));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
+// favicon
+app.use('/favicon.ico', function (req, res) {
+    res.end('Not found!');
+});
+
 // api
 app.use('/api/example', exampleApi);
 
@@ -43,7 +48,7 @@ app.get('*', function (req, res) {
 
     Promise.all(map(
         actionFunc => {
-            return actionFunc(req)(store.dispatch)
+            return actionFunc(req)(store.dispatch);
         },
         actions
     ))
@@ -60,6 +65,7 @@ app.get('*', function (req, res) {
                 </Provider>
             );
             const helmet = Helmet.renderStatic();
+            helmet.title = 'Leonardo DiCaprio (@leonardodicaprio) • Фото и видео в Instagram';
             const preloadedState = store.getState();
             const page = renderPage(html, helmet, preloadedState);
 

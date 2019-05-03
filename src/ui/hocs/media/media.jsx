@@ -12,7 +12,6 @@ import map from '@tinkoff/utils/object/map';
 const DEBOUNCE_DURATION = 300;
 
 const isLandscape = () => {
-    console.log(window.screen)
     try {
         if (window.orientation) {
             return { matches: Math.abs(window.orientation) === 90 };

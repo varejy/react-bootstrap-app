@@ -6,7 +6,7 @@ import media from './ui/hocs/media/media.jsx';
 import '../client/vendor';
 import './css/main.css';
 
-import MainPage from "./ui/pages/MainPage/MainPage.jsx"
+import MainPage from './ui/pages/MainPage/MainPage.jsx';
 
 @media
 class App extends Component {

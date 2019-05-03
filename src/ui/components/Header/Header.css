@@ -14,6 +14,18 @@
     justify-content: center;
 }
 
+.headerMin{
+    animation-name: heightMin;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
+}
+
+.headerMax{
+    animation-name: heightMax;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
+}
+
 .headerContent{
     display: -webkit-box;
     display: -webkit-flex;
@@ -29,11 +41,18 @@
     max-width: 1010px;
     padding: 26px 20px;
     width: 100%;
-    align-items: center;
 }
 
-.logs{
+.displayNone{
+    animation-duration: 0.4s;
+    animation-name: HeaderDisplayN;
+    animation-fill-mode: forwards;
+}
 
+.display{
+    animation-duration: 0.4s;
+    animation-name: HeaderDisplay;
+    animation-fill-mode: forwards;
 }
 
 .imageLog{
@@ -69,34 +88,121 @@
     cursor: pointer;
 }
 
+.headerInputWrapper{
+    height: 28px;
+    min-width: 125px;
+    width: 215px;
+    position: relative;
+}
+
 .headerInput{
     background-repeat: no-repeat;
     background-position: -437px -344px;
+    border: solid 1px #dbdbdb;
+    border-radius: 3px;
+    color: #262626;
+    outline: 0;
+    padding: 3px 10px 3px 26px;
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+    background-color: #fafafa;
+}
+
+.headerInputActive{
+    text-align: center;
+    color: #999999;
+}
+
+.searchImg{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    display: block;
+    z-index: 2;
+    width: 10px;
+    height: 10px;
+    z-index: 2;
+    background: url(https://www.instagram.com/static/bundles/metro/sprite_glyphs_7f5bab945363.png/7f5bab945363.png);
+    background-repeat: no-repeat;
+    background-position: -297px -206.4px;
+}
+
+.headerInputIconActive{
+    position: absolute;
+    left: 81px;
+    top: 9px;
 }
 
 .headerIcon{
     display: flex;
     justify-content: space-between;
     flex-direction: row;
+    width: 132px;
+    height: 28px;
 }
+
 .explore{
 
 }
 .exploreImg{
-
+    background-repeat: no-repeat;
+    background-position: -104px -255px;
 }
 .activity{
 
 }
 .activityImg{
-
+    background-repeat: no-repeat;
+    background-position: -231px -130px;
 }
 .profile{
 
 }
 .profileImg{
-
+    background-repeat: no-repeat;
+    background-position: -182px -203px;
 }
 .icon{
+    height: 24px;
+    width: 24px;
+    display: block;
+}
 
+@keyframes heightMin {
+    from{
+        height: 77px;
+    }
+    to{
+        height: 52px;
+    }
+}
+
+@keyframes heightMax {
+    from{
+        height: 52px;
+    }
+    to{
+        height: 77px;
+    }
+}
+
+@keyframes HeaderDisplayN {
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+        display: none;
+    }
+}
+
+@keyframes HeaderDisplay {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+        display: block;
+    }
 }

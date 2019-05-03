@@ -1,13 +1,12 @@
 import {
-    SET_MEDIA_INFO,
+    SET_MEDIA_INFO
 } from '../types/types';
 
 const initialState = {
     media: {
         width: 0,
         height: 0
-    },
-    points: []
+    }
 };
 
 export default function (state = initialState, action) {
