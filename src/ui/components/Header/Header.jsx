@@ -32,7 +32,7 @@ class Header extends Component {
         });
     }
     render (props) {
-        return <main>
+        return <main className={style.Header}>
             <div className={classNames(style.header, this.state.headerScrolls ? style.headerMin : style.headerMax)}>
                 <div className={style.headerContent}>
                     <div className={style.logs}>
