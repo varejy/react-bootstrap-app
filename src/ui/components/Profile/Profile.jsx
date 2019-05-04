@@ -8,8 +8,29 @@ class Profile extends Component {
         super(props);
 
         this.state = {
-            subscribers: 123
+            subscribers: 123,
+            subscribersClick: false,
+            subscriberValue: 'Подписаться'
         }
+
+        this.SubscribeClick = this.SubscribeClick.bind(this);
+    }
+
+    SubscribeClick(){
+        if(!this.state.subscribersClick){
+            this.setState({
+                subscribers: this.state.subscribers += 1,
+                subscribersClick: !this.state.subscribersClick,
+                subscriberValue: 'Подписки'
+            })
+        }else if(this.state.subscribersClick){
+            this.setState({
+                subscribers: this.state.subscribers - 1,
+                subscribersClick: !this.state.subscribersClick,
+                subscriberValue: 'Подписаться'
+            })
+        }
+        
     }
     render () {
         return <main className={style.Profile}>
@@ -22,9 +43,9 @@ class Profile extends Component {
                         <h1 className={style.nickname}>leonardodicaprio</h1>
                         <span className={classNames(style.confirmationLogo, style.imageLog)}></span>
                         <div className={style.buttons}>
-                            <button className={style.subscribe}>Подписаться</button>
+                            <button className={classNames(style.NotSubscribe, { [style.subscribe]: this.state.subscribersClick })} onClick={this.SubscribeClick}>{ this.state.subscriberValue }</button>
 
-                            <button className={style.showRecommended}><span className={classNames(style.buttonIcon, style.imageLog)}></span></button>
+                            <button className={classNames(style.showRecommended, { [style.subscribeBtnRecom]: this.state.subscribersClick })}><span className={classNames(style.buttonIcon, style.imageLog, { [style.subscribeBtnRecomIcon]: this.state.subscribersClick })}></span></button>
                         </div>
                     </div>
                     <div className={style.subscriptionsInfo}>
@@ -35,9 +56,9 @@ class Profile extends Component {
                         </ul>
                     </div>
                     <div className={style.description}>
-                        <h1>Leonardo DiCaprio</h1>
-                        <span>Actor and Environmentalist</span>
-                        <a href="https://l.instagram.com/?u=http%3A%2F%2Fglobaldealfornature.org%2F&e=ATNEsVorl35ZgIdQGRxB5kd7rB6WNyemG54jvCA8j9L2HgNPAv1Y0an5enQJF8JZGYGwbt_Aek7YzR21">globaldealfornature.org</a>
+                        <h1 className={style.descriptionChild}>Leonardo DiCaprio</h1>
+                        <span className={style.descriptionChild}>Actor and Environmentalist</span>
+                        <a className={style.descriptionChild} href="https://www.globaldealfornature.org/">globaldealfornature.org</a>
                     </div>
                 </div>
             </div>

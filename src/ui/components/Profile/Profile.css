@@ -62,7 +62,7 @@
     width: 30.4%;
 }
 
-.subscribe{
+.NotSubscribe{
     background: #3897f0;
     border-color: #3897f0;
     color: #fff;
@@ -83,6 +83,12 @@
     padding: 0 24px;
     white-space: nowrap;
     width: 100%;
+}
+
+.subscribe{
+    background: 0 0;
+    border-color: #dbdbdb;
+    color: #262626;
 }
 .showRecommended{
     -webkit-appearance: none;
@@ -106,12 +112,23 @@
     justify-content: center;
 }
 
+.subscribeBtnRecom{
+    background-color: #fafafa;
+    border-color: #dbdbdb;
+    color: #262626;
+}
+
 .buttonIcon{
     background-repeat: no-repeat;
-    background-position: -300px -239px;
+    background-position: -299px -239px;
     height: 6px;
     width: 9px;
     display: block;
+}
+
+.subscribeBtnRecomIcon{
+    background-position: -322px -239px;
+    width: 8px;
 }
 
 .subscriptionsInfo{
@@ -148,23 +165,20 @@ ul li span{
     align-items: flex-start;
 }
 
-.description {
-    margin-bottom: 15px;
+.descriptionChild{
+    margin-bottom: 2px;
+    color: #262626;
 }
 
 .description h1 {
     font-weight: 600;
-    color: #262626;
     font-size: 16px;
-    margin-bottom: 15px;
 }
 
 .description span{
     font-size: 16px;
     line-height: 24px;
     word-wrap: break-word;
-    color: #262626;
-    margin-bottom: 15px;
 }
 
 .description a{

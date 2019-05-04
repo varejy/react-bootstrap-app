@@ -9,17 +9,36 @@ class Header extends Component {
 
         this.state = {
             InputState: true,
-            headerScrolls: false
+            InputValue: '',
+            headerScrolls: false,
+            InputExt: false
         };
 
         this.InputHandleClick = this.InputHandleClick.bind(this);
+        this.SearchExtHandleClick = this.SearchExtHandleClick.bind(this);
+        this.InputHandleChange = this.InputHandleChange.bind(this);
     }
 
     InputHandleClick (elem) {
         elem.preventDefault();
-        if (this.state.InputState) {
-            this.setState({ InputState: !this.state.InputState });
+        if (this.state.InputState && !this.state.InputExt) {
+            this.setState({ 
+                InputState: !this.state.InputState, 
+                InputExt: !this.state.InputExt,
+            });
         }
+    }
+
+    InputHandleChange (elem) {
+        this.setState({ InputValue: elem.target.value })
+    }
+
+    SearchExtHandleClick (elem){
+        this.setState({
+            InputExt: !this.state.InputExt,
+            InputState: !this.state.InputState,
+            InputValue: ''
+        });
     }
 
     componentDidMount () {
@@ -44,8 +63,9 @@ class Header extends Component {
                     </div>
                     <div className={style.headerInputWrapp}>
                         <div className={style.headerInputWrapper}>
-                            <input className={classNames(style.headerInput, style.imageLog, { [style.headerInputActive]: this.state.InputState })} onClick={this.InputHandleClick} type="text" placeholder="Поиск" required/>
-                            <span className={classNames(style.searchImg, style.imageLog, { [style.headerInputIconActive]: this.state.InputState })}></span>
+                            <input className={classNames(style.headerInput, style.imageLog, { [style.headerInputActive]: !this.state.InputExt })} onClick={this.InputHandleClick} onChange={this.InputHandleChange} type="text" placeholder="Поиск" value={this.state.InputValue} required/>
+                            <span className={classNames(style.searchImg, style.imageLog, { [style.headerInputIconActive]: !this.state.InputExt })}></span>
+                            <span className={classNames(style.searchImgExtShow, style.imageLog, { [style.searchImgExt]: this.state.InputState })} onClick={this.SearchExtHandleClick}></span>
                         </div>
                     </div>
                     <div className={style.headerIcon}>
