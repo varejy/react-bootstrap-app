@@ -7,7 +7,7 @@
 
 .ContentWrapp{
     height: 100%;
-    width: 48.5%;
+    width: 975px;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;

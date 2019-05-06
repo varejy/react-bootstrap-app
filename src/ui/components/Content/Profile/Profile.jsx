@@ -69,10 +69,10 @@ class Profile extends Component {
                         </div>
                     </div>
                     <div className={style.subscriptionsInfo}>
-                        <ul>
-                            <li><span>{ publication }</span> публикаций</li>
-                            <li><span>{ subscribers }</span> подписчиков</li>
-                            <li>Подписки: <span>{ subscriptions }</span></li>
+                        <ul className={style.subsInfo}>
+                            <li className={style.ProfileInfoItem}><span className={style.subscriptInfo}>{ publication }</span> публикаций</li>
+                            <li className={style.ProfileInfoItem}><span className={style.subscriptInfo}>{ subscribers }</span> подписчиков</li>
+                            <li className={style.ProfileInfoItem}>Подписки: <span className={style.subscriptInfo}>{ subscriptions }</span></li>
                         </ul>
                     </div>
                     <div className={style.description}>
