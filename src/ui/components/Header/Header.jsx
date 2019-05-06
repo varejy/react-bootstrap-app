@@ -22,18 +22,18 @@ class Header extends Component {
     InputHandleClick (elem) {
         elem.preventDefault();
         if (this.state.InputState && !this.state.InputExt) {
-            this.setState({ 
-                InputState: !this.state.InputState, 
-                InputExt: !this.state.InputExt,
+            this.setState({
+                InputState: !this.state.InputState,
+                InputExt: !this.state.InputExt
             });
         }
     }
 
     InputHandleChange (elem) {
-        this.setState({ InputValue: elem.target.value })
+        this.setState({ InputValue: elem.target.value });
     }
 
-    SearchExtHandleClick (elem){
+    SearchExtHandleClick (elem) {
         this.setState({
             InputExt: !this.state.InputExt,
             InputState: !this.state.InputState,
@@ -51,21 +51,37 @@ class Header extends Component {
         });
     }
     render (props) {
-        return <main className={style.Header}>
-            <div className={classNames(style.header, this.state.headerScrolls ? style.headerMin : style.headerMax)}>
+        const { InputState, InputExt, InputValue, headerScrolls } = this.state;
+        return <div className={style.Header}>
+            <div className={classNames(style.header, headerScrolls ? style.headerMin : style.headerMax)}>
                 <div className={style.headerContent}>
                     <div className={style.logs}>
                         <a href="/" className={style.logsElements}>
                             <div className={classNames(style.logo, style.imageLog)}></div>
-                            <div className={classNames(style.break, this.state.headerScrolls ? style.displayNone : style.display)}></div>
-                            <div className={classNames(style.headerTitle, style.imageLog, this.state.headerScrolls ? style.displayNone : style.display)}></div>
+                            <div className={classNames(style.break, headerScrolls ? style.displayNone : style.display)}></div>
+                            <div className={classNames(style.headerTitle, style.imageLog, headerScrolls ? style.displayNone : style.display)}></div>
                         </a>
                     </div>
                     <div className={style.headerInputWrapp}>
                         <div className={style.headerInputWrapper}>
-                            <input className={classNames(style.headerInput, style.imageLog, { [style.headerInputActive]: !this.state.InputExt })} onClick={this.InputHandleClick} onChange={this.InputHandleChange} type="text" placeholder="Поиск" value={this.state.InputValue} required/>
-                            <span className={classNames(style.searchImg, style.imageLog, { [style.headerInputIconActive]: !this.state.InputExt })}></span>
-                            <span className={classNames(style.searchImgExtShow, style.imageLog, { [style.searchImgExt]: this.state.InputState })} onClick={this.SearchExtHandleClick}></span>
+                            <input
+                                className={classNames(style.headerInput, style.imageLog, { [style.headerInputActive]: !InputExt })}
+                                onClick={this.InputHandleClick}
+                                onChange={this.InputHandleChange}
+                                type="text"
+                                placeholder="Поиск"
+                                value={InputValue}
+                                required
+                            />
+                            <span
+                                className={classNames(style.searchImg, style.imageLog, { [style.headerInputIconActive]: !InputExt })}
+                            >
+                            </span>
+                            <span
+                                className={classNames(style.searchImgExtShow, style.imageLog, { [style.searchImgExt]: InputState })}
+                                onClick={this.SearchExtHandleClick}
+                            >
+                            </span>
                         </div>
                     </div>
                     <div className={style.headerIcon}>
@@ -87,7 +103,7 @@ class Header extends Component {
                     </div>
                 </div>
             </div>
-        </main>;
+        </div>;
     }
 }
 

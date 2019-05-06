@@ -6,7 +6,7 @@ import Content from '../../components/Content/Content.jsx';
 import styles from './MainPage.css';
 
 class MainPage extends Component {
-    render (props) {
+    render () {
         return (
             <div className={styles.MainPage}>
                 <Header/>
