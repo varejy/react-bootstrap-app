@@ -16,10 +16,10 @@ class Profile extends Component {
             isSubscribed: false
         };
 
-        this.SubscribeClick = this.SubscribeClick.bind(this);
+        this.handleSubscribeClick = this.handleSubscribeClick.bind(this);
     }
 
-    SubscribeClick () {
+    handleSubscribeClick () {
         if (!this.state.isSubscribed) {
             this.setState({
                 user: {
@@ -55,7 +55,7 @@ class Profile extends Component {
                         <div className={style.buttons}>
                             <button
                                 className={classNames(style.NotSubscribe, { [style.subscribe]: isSubscribed })}
-                                onClick={this.SubscribeClick}
+                                onClick={this.handleSubscribeClick}
                             >
                                 { isSubscribed === true ? 'Подписки' : 'Подписаться'}
                             </button>

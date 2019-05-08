@@ -1,0 +1,67 @@
+#AdContentWrapp{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    flex-basis: 293px;
+}
+
+.itemImage{
+    width: 293px;
+    height: 293px;
+}
+
+.item{
+    width: 293px;
+    height: 293px;
+    flex-grow: 1;
+    margin-bottom: 28px;
+    display: flex;
+    position: relative;
+}
+
+.item:last-child{
+    flex-grow: 17;
+}
+
+.item:hover > .itemInfo{
+    display: flex
+}
+
+.itemInfo{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    width: 293px;
+    height: 293px;
+    background: rgba(0, 0, 0, 0.3);
+    display: none;
+}
+
+.itemsInfo:first-child {
+    margin-right: 30px;
+}
+
+.itemsInfo {
+    display: flex;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.itemsInfo > span {
+    background: url('https://www.instagram.com/static/bundles/metro/sprite_core_f01fcb405c10.png/f01fcb405c10.png');
+    background-repeat: no-repeat;
+    display: block;
+    height: 19px;
+    width: 19px;
+    margin-right: 7px;
+}
+
+#itemLikeImg{
+    background-position: -225px -399px;
+}
+
+#itemComentsImg{
+    background-position: -246px -399px;
+}

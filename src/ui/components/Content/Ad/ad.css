@@ -25,10 +25,6 @@
     align-items: center;
     color: #999;
 }
-.headButtons:hover {
-    border-top: 1px solid #262626;
-    color: #262626;
-}
 
 .headButtonsImg{
     background-repeat: no-repeat;
@@ -38,10 +34,18 @@
 }
 
 .publicImg{
+    background-position: -36px -425px;
+}
+
+.publicImgActive {
     background-position: -50px -425px;
 }
 
 .tagsImg{
+    background-position: -436px -399px;
+}
+
+.tagsImgActive{
     background-position: -378px -189px;
 }
 
@@ -49,37 +53,22 @@
     text-transform: uppercase;
     margin-left: 6px;
 }
-.publication{
+.navPublication{
     margin: -1px 60px 0px 0px;
 }
 
-.tags{
+.navPublicActive{
+    border-top: 1px solid #262626;
+    color: #262626;
+    margin: -1px 60px 0px 0px;
+}
+
+.navTags{
     margin: -1px 0px 0px 0px;
 }
 
-#AdContentWrapp{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    flex-basis: 293px;
-}
-
-.itemImage{
-    width: 293px;
-    height: 293px;
-}
-
-.item{
-    width: 293px;
-    height: 293px;
-    flex-grow: 1;
-    margin-bottom: 28px;
-}
-
-.item:last-child{
-    flex-grow: 17;
-}
-
-.itemInfo{
-    display: none
+.navTagsActive{
+    border-top: 1px solid #262626;
+    color: #262626;
+    margin: -1px 0px 0px 0px;
 }
