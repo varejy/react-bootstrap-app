@@ -2,73 +2,91 @@ export const avatarImg = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9Gc
 export const tags = [
     {
         imgUrl: 'https://materializecss.com/images/sample-1.jpg',
-        coments: [
+        comments: [
             {
                 avatar: avatarImg,
+                users: 'User',
                 id: 101,
                 text: 'Cooll Image!',
-                ComentLike: 12
+                commentLike: 12
             },
             {
                 avatar: avatarImg,
+                users: 'User',
                 id: 102,
                 text: ':)',
-                ComentLike: 0
+                commentLike: 2
+            },
+            {
+                avatar: avatarImg,
+                users: 'User',
+                id: 103,
+                text: 'Hello world!',
+                commentLike: 10
             }
         ],
         id: 201,
-        imgLike: 43
+        imgLike: 20
     },
     {
         imgUrl: 'https://images.alphacoders.com/571/571404.jpg',
-        coments: [],
+        comments: [],
         id: 202,
-        imgLike: 0
+        imgLike: 9
     },
     {
         imgUrl: 'https://www.w3schools.com/howto/img_mountains.jpg',
-        coments: [],
+        comments: [
+            {
+                avatar: avatarImg,
+                users: 'User',
+                id: 103,
+                text: 'Hello world!',
+                commentLike: 10
+            }
+        ],
         id: 203,
-        imgLike: 1
+        imgLike: 70
     },
     {
         imgUrl: 'https://www.w3schools.com/w3css/img_lights.jpg',
-        coments: [],
+        comments: [],
         id: 204,
         imgLike: 12
     },
     {
         imgUrl: 'https://static.addtoany.com/images/dracaena-cinnabari.jpg',
-        coments: [],
+        comments: [],
         id: 205,
         imgLike: 4
     },
     {
         imgUrl: 'https://journals.plos.org/plosbiology/article/figure/image?size=medium&id=info:doi/10.1371/image.pbio.v16.i12.g001',
-        coments: [],
+        comments: [],
         id: 206,
         imgLike: 3
     },
     {
         imgUrl: 'https://images.pexels.com/photos/257360/pexels-photo-257360.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-        coments: [],
+        comments: [],
         id: 207,
         imgLike: 124
     },
     {
         imgUrl: 'https://www.w3schools.com/howto/img_snow.jpg',
-        coments: [],
+        comments: [],
         id: 208,
         imgLike: 3
     },
     {
         imgUrl: 'http://goodnewsanimal.ru/_nw/26/10622032.jpg',
-        coments: [
+        comments: [
             {
                 avatar: avatarImg,
-                id: 103,
+                users: 'User',
+                id: 104,
                 text: ':)',
-                ComentLike: 2
+                commentLike: 2
             }
         ],
         id: 209,
@@ -76,37 +94,37 @@ export const tags = [
     },
     {
         imgUrl: 'https://i.routestofinance.com/img/retirement-planning-2017/roth-conversion-should-you-do-roth-conversion.png',
-        coments: [],
+        comments: [],
         id: 210,
         imgLike: 0
     },
     {
         imgUrl: 'https://www.w3schools.com/howto/img_mountains.jpg',
-        coments: [],
+        comments: [],
         id: 211,
         imgLike: 0
     },
     {
         imgUrl: 'https://cdn.allwallpaper.in/wallpapers/1920x1200/13627/blue-mountains-clouds-distance-perspective-skies-1920x1200-wallpaper.jpg',
-        coments: [],
+        comments: [],
         id: 212,
         imgLike: 0
     },
     {
         imgUrl: 'https://s.newsweek.com/sites/www.newsweek.com/files/styles/full/public/2019/04/09/black-hole-stock-image.jpg',
-        coments: [],
+        comments: [],
         id: 213,
         imgLike: 0
     },
     {
         imgUrl: 'https://amazingslider.com/wp-content/uploads/2012/12/dandelion.jpg',
-        coments: [],
+        comments: [],
         id: 214,
         imgLike: 0
     },
     {
         imgUrl: 'https://lokeshdhakar.com/projects/lightbox2/images/image-4.jpg',
-        coments: [],
+        comments: [],
         id: 215,
         imgLike: 0
     }

@@ -50,7 +50,7 @@ class Header extends Component {
             }
         });
     }
-    render (props) {
+    render () {
         const { InputState, InputExt, InputValue, headerScrolls } = this.state;
         return <div className={style.Header}>
             <div className={classNames(style.header, headerScrolls ? style.headerMin : style.headerMax)}>

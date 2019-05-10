@@ -13,7 +13,7 @@ class Posters extends Component {
                         <img className={styles.itemImage} src={item.imgUrl} />
                         <div className={styles.itemInfo}>
                             <div className={styles.itemsInfo}><span id={styles.itemLikeImg}></span><h2>{item.imgLike}</h2></div>
-                            <div className={styles.itemsInfo}><span id={styles.itemComentsImg}></span><h2>{item.coments.length}</h2></div>
+                            <div className={styles.itemsInfo}><span id={styles.itemCommentsImg}></span><h2>{item.comments.length}</h2></div>
                         </div>
                     </li>
                 )

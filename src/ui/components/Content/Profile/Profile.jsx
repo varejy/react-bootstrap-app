@@ -3,67 +3,65 @@ import classNames from 'classnames';
 
 import style from './Profile.css';
 
+import user from '../shared/user';
+
 class Profile extends Component {
     constructor (props) {
         super(props);
 
         this.state = {
-            user: {
-                subscribers: 123,
-                publication: 23,
-                subscriptions: 31
-            },
-            isSubscribed: false
+            isSubscribe: user.isSubscribe,
+            subscribers: user.subscribers
         };
 
         this.handleSubscribeClick = this.handleSubscribeClick.bind(this);
     }
 
     handleSubscribeClick () {
-        if (!this.state.isSubscribed) {
+        if (!this.state.isSubscribe) {
             this.setState({
-                user: {
-                    subscribers: this.state.user.subscribers += 1,
-                    publication: this.state.user.publication,
-                    subscriptions: this.state.user.subscriptions
-                },
-                isSubscribed: !this.state.isSubscribed
+                isSubscribe: true,
+                subscribers: user.subscribers += 1
             });
-        } else if (this.state.isSubscribed) {
+        } else if (this.state.isSubscribe) {
             this.setState({
-                user: {
-                    subscribers: this.state.user.subscribers - 1,
-                    publication: this.state.user.publication,
-                    subscriptions: this.state.user.subscriptions
-                },
-                isSubscribed: !this.state.isSubscribed
+                isSubscribe: false,
+                subscribers: user.subscribers -= 1
             });
         }
     }
     render () {
-        const { subscribers, publication, subscriptions } = this.state.user;
-        const { isSubscribed } = this.state;
+        const {
+            userAvatar,
+            userLogin,
+            publication,
+            subscriptions,
+            descriptionUserName,
+            descriptionAboutYourself,
+            descriptionLink
+        } = user;
+        const { subscribers, isSubscribe } = this.state;
         return <div className={style.Profile}>
             <div className={style.ProfileWrapp}>
                 <div className={style.avatar}>
-                    <div className={style.img}></div>
+                    <img className={style.img} src={ userAvatar }></img>
                 </div>
                 <div className={style.info}>
                     <div className={style.header}>
-                        <h1 className={style.nickname}>leonardodicaprio</h1>
+                        <h1 className={style.nickname}>{ userLogin }</h1>
                         <span className={classNames(style.confirmationLogo, style.imageLog)}></span>
                         <div className={style.buttons}>
                             <button
-                                className={classNames(style.NotSubscribe, { [style.subscribe]: isSubscribed })}
+                                className={classNames(style.NotSubscribe, { [style.subscribe]: isSubscribe })}
                                 onClick={this.handleSubscribeClick}
                             >
-                                { isSubscribed === true ? 'Подписки' : 'Подписаться'}
+                                { isSubscribe === true ? 'Подписки' : 'Подписаться' }
                             </button>
 
                             <button
-                                className={classNames(style.showRecommended, { [style.subscribeBtnRecom]: isSubscribed })}>
+                                className={classNames(style.showRecommended, { [style.subscribeBtnRecom]: isSubscribe })}>
                                 <span
-                                    className={classNames(style.buttonIcon, style.imageLog, { [style.subscribeBtnRecomIcon]: isSubscribed })}>
+                                    className={classNames(style.buttonIcon, style.imageLog, { [style.subscribeBtnRecomIcon]: isSubscribe })}>
                                 </span>
                             </button>
                         </div>
@@ -76,9 +74,9 @@ class Profile extends Component {
                         </ul>
                     </div>
                     <div className={style.description}>
-                        <h1 className={style.descriptionChild}>Leonardo DiCaprio</h1>
-                        <span className={style.descriptionChild}>Actor and Environmentalist</span>
-                        <a className={style.descriptionChild} href="https://www.globaldealfornature.org/">globaldealfornature.org</a>
+                        <h1 className={style.descriptionChild}>{ descriptionUserName }</h1>
+                        <span className={style.descriptionChild}>{ descriptionAboutYourself }</span>
+                        <a className={style.descriptionChild} href={ descriptionLink.descriptionLinkUrl }>{ descriptionLink.descriptionLinkTxt }</a>
                     </div>
                 </div>
             </div>
