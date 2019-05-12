@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import { posts } from '../posts';
 
+import Post from '../Post/Post.jsx';
+
 import styles from './posters.css';
 
 class Posters extends Component {
@@ -9,13 +11,7 @@ class Posters extends Component {
         return (<ul id={styles.AdContentWrapp}>
             {
                 posts.map((item) =>
-                    <li key={item.id} className={styles.item}>
-                        <img className={styles.itemImage} src={item.imgUrl} />
-                        <div className={styles.itemInfo}>
-                            <div className={styles.itemsInfo}><span id={styles.itemLikeImg}></span><h2>{item.imgLike}</h2></div>
-                            <div className={styles.itemsInfo}><span id={styles.itemCommentsImg}></span><h2>{item.comments.length}</h2></div>
-                        </div>
-                    </li>
+                    <Post key={item.id} imgUrl={item.imgUrl} imgLike={item.imgLike} comments={item.comments}/>
                 )
             }
         </ul>);

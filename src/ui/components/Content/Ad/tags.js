@@ -1,4 +1,4 @@
-export const avatarImg = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP7ezZHG2Wl1wf08KbWRzi50scTyC3IrbURts_NtMowKgiFaLv';
+export const avatarImg = 'http://grampages.com/img/gpib.png';
 export const tags = [
     {
         imgUrl: 'https://materializecss.com/images/sample-1.jpg',
@@ -14,7 +14,7 @@ export const tags = [
                 avatar: avatarImg,
                 users: 'User',
                 id: 102,
-                text: ':)',
+                text: ': )',
                 commentLike: 2
             },
             {
@@ -85,7 +85,7 @@ export const tags = [
                 avatar: avatarImg,
                 users: 'User',
                 id: 104,
-                text: ':)',
+                text: ': )',
                 commentLike: 2
             }
         ],

@@ -1,4 +1,4 @@
-export const avatarImg = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP7ezZHG2Wl1wf08KbWRzi50scTyC3IrbURts_NtMowKgiFaLv';
+export const avatarImg = 'http://grampages.com/img/gpib.png';
 export const posts = [
     {
         imgUrl: 'https://www.w3schools.com/w3css/img_lights.jpg',
@@ -14,7 +14,7 @@ export const posts = [
                 avatar: avatarImg,
                 users: 'User',
                 id: 12,
-                text: ':)',
+                text: ': )',
                 commentLike: 0
             }
         ],
@@ -70,7 +70,7 @@ export const posts = [
                 avatar: avatarImg,
                 users: 'User',
                 id: 13,
-                text: ':)',
+                text: ': )',
                 commentLike: 2
             }
         ],
