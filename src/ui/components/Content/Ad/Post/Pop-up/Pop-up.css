@@ -1,5 +1,12 @@
-.ShowItemWrapp{
+.PopUpActive{
     display: flex;
+}
+
+.PopUp{
+    display: none;
+}
+
+.ShowItemWrapp{
     position: fixed;
     top: 0px;
     left: 0px;
@@ -11,9 +18,20 @@
     align-items: center;
 }
 
+.screen{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 5;
+    min-width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    min-height: 100%;
+}
+
 .itemDetail{
     display: flex;
     width: fit-content;
+    z-index: 10;
 }
 
 .itemImageDetail{
@@ -33,6 +51,9 @@
     width: 335px;
     max-height: -webkit-fill-available;
     background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .itemInfoHeader{
@@ -80,4 +101,45 @@
 
 .commentsWrapp{
     height: 63%;
+}
+
+.itemOptions{
+    padding-top: 4px;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-top: 4px;
+    border-top: 1px solid #efefef;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 40px;
+}
+
+.sharesButtons{
+    display: flex;
+    justify-content: space-around;
+    min-width: 120px; 
+}
+
+.optionsIcons{
+    background-repeat: no-repeat;
+    background-image: url('https://www.instagram.com/static/bundles/metro/sprite_glyphs_4d61c80848f3.png/4d61c80848f3.png');
+    height: 24px;
+    width: 24px;
+}
+
+.likesIcon{
+    background-position: -156px -211px;
+}
+
+.commentsIcon{
+    background-position: -27px -177px;
+}
+
+.shareIcon{
+    background-position: 0 -263px;
+}
+
+.savesImage{
+    background-position: -287px -130px;
 }

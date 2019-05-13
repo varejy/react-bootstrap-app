@@ -12,7 +12,7 @@ class Comments extends Component {
                 </div>
                 <div className={styles.commentWrapp}>
                     <div className={styles.comment}>
-                        <p className={styles.comments}><div className={styles.usersNames}>{usersNames}</div>{comment}</p>
+                        <span className={styles.comments}><div className={styles.usersNames}>{usersNames}</div>{comment}</span>
                     </div>
                     <div className={styles.commentsInfo}>
                         <p className={styles.commentTime}>41 мин.</p>

@@ -1,15 +1,26 @@
 import React, { Component } from 'react';
+import classNames from 'classnames';
 
 import styles from './Pop-up.css';
 
 import user from '../../../shared/user';
 
 import Comments from './Comments/Comments.jsx';
+import AddComments from './AddComments/AddComments.jsx';
 
 class PopUp extends Component {
+    constructor (props) {
+        super(props);
+
+        this.state = {
+            isShow: false
+        };
+    }
     render (props) {
-        const { image, comments } = this.props;
-        return (<div className={styles.ShowItemWrapp}>
+        const { image, comments, OutPopUp } = this.props;
+        const { isShow } = this.state;
+        return (<div className={classNames(styles.PopUpActive, styles.ShowItemWrapp)}>
+            <div className={styles.screen} onClick={() => OutPopUp(isShow)}></div>
             <div className={styles.itemDetail}>
                 <div className={styles.itemImageDetail}>
                     <img className={styles.itemImg} src={image} />
@@ -40,6 +51,15 @@ class PopUp extends Component {
                             }
                         </ul>
                     </div>
+                    <div className={styles.itemOptions}>
+                        <div className={styles.sharesButtons}>
+                            <div className={classNames(styles.likesIcon, styles.optionsIcons)}></div>
+                            <div className={classNames(styles.commentsIcon, styles.optionsIcons)}></div>
+                            <div className={classNames(styles.shareIcon, styles.optionsIcons)}></div>
+                        </div>
+                        <div className={classNames(styles.savesImage, styles.optionsIcons)}></div>
+                    </div>
+                    <AddComments/>
                 </div>
             </div>
         </div>);

@@ -5,7 +5,7 @@ export const posts = [
         comments: [
             {
                 avatar: avatarImg,
-                users: 'User',
+                users: 'varejy',
                 id: 11,
                 text: 'Cooll Image!',
                 commentLike: 12
@@ -68,7 +68,7 @@ export const posts = [
         comments: [
             {
                 avatar: avatarImg,
-                users: 'User',
+                users: 'User2312',
                 id: 13,
                 text: ': )',
                 commentLike: 2

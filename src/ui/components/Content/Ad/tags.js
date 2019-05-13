@@ -5,21 +5,21 @@ export const tags = [
         comments: [
             {
                 avatar: avatarImg,
-                users: 'User',
+                users: 'Roman2312',
                 id: 101,
                 text: 'Cooll Image!',
                 commentLike: 12
             },
             {
                 avatar: avatarImg,
-                users: 'User',
+                users: 'Michail1234',
                 id: 102,
                 text: ': )',
                 commentLike: 2
             },
             {
                 avatar: avatarImg,
-                users: 'User',
+                users: 'Vasia20030812',
                 id: 103,
                 text: 'Hello world!',
                 commentLike: 10
@@ -39,7 +39,7 @@ export const tags = [
         comments: [
             {
                 avatar: avatarImg,
-                users: 'User',
+                users: 'Hero5',
                 id: 103,
                 text: 'Hello world!',
                 commentLike: 10
@@ -83,7 +83,7 @@ export const tags = [
         comments: [
             {
                 avatar: avatarImg,
-                users: 'User',
+                users: 'Smile268',
                 id: 104,
                 text: ': )',
                 commentLike: 2
