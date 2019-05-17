@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
+import { connect } from 'react-redux';
 
 import Tags from './Tags/Tags.jsx';
 import Posters from './Posters/Posters.jsx';
+
+import { posts } from './posts';
+import { tags } from './tags';
 
 import styles from './ad.css';
 
@@ -28,6 +32,7 @@ class Ad extends Component {
     }
     render () {
         const { isMain } = this.state;
+        const { posts, tags } = this.props;
         return (
             <div className={styles.Ad}>
                 <div className={styles.AdWrapp}>
@@ -45,7 +50,7 @@ class Ad extends Component {
                         </div>
                     </header>
                     <div>
-                        {isMain ? <Posters/> : <Tags/>}
+                        {isMain ? <Posters posts={posts}/> : <Tags tags={tags}/>}
                     </div>
                 </div>
             </div>
@@ -53,4 +58,11 @@ class Ad extends Component {
     }
 }
 
-export default Ad;
+const mapStateToProps = state => {
+    return {
+        posts: posts,
+        tags: tags
+    };
+};
+
+export default connect(mapStateToProps)(Ad);

@@ -13,6 +13,8 @@ delete window.__PRELOADED_STATE__;
 
 const store = getStore(preloadedState);
 
+console.log(store);
+
 hydrate(
     <Provider store={store}>
         <BrowserRouter>

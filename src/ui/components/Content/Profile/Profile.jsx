@@ -3,44 +3,63 @@ import classNames from 'classnames';
 
 import style from './Profile.css';
 
-import user from '../shared/user';
-
 class Profile extends Component {
-    constructor (props) {
-        super(props);
+    state = {
+        userLogin: '',
+        userAvatar: '',
+        subscribers: 0,
+        publication: 0,
+        subscriptions: 0,
+        isSubscribe: false,
+        descriptionUserName: '',
+        descriptionAboutYourself: '',
+        descriptionLink: {}
+    };
 
-        this.state = {
-            isSubscribe: user.isSubscribe,
-            subscribers: user.subscribers
-        };
-
-        this.handleSubscribeClick = this.handleSubscribeClick.bind(this);
-    }
-
-    handleSubscribeClick () {
+    handleSubscribeClick = () => {
         if (!this.state.isSubscribe) {
-            this.setState({
-                isSubscribe: true,
-                subscribers: user.subscribers += 1
+            this.setState((state, props) => {
+                return ({
+                    isSubscribe: true,
+                    subscribers: props.user.subscribers + 1
+                });
             });
         } else if (this.state.isSubscribe) {
-            this.setState({
-                isSubscribe: false,
-                subscribers: user.subscribers -= 1
+            this.setState((state, props) => {
+                return {
+                    isSubscribe: false,
+                    subscribers: props.user.subscribers - 0
+                };
             });
         }
     }
+    componentDidMount = () => {
+        this.setState((state, props) => {
+            return {
+                userLogin: props.user.userLogin,
+                userAvatar: props.user.userAvatar,
+                subscribers: props.user.subscribers,
+                publication: props.user.publication,
+                subscriptions: props.user.subscriptions,
+                isSubscribe: props.user.isSubscribe,
+                descriptionUserName: props.user.descriptionUserName,
+                descriptionAboutYourself: props.user.descriptionAboutYourself,
+                descriptionLink: props.user.descriptionLink
+            };
+        });
+    };
     render () {
         const {
-            userAvatar,
             userLogin,
+            userAvatar,
+            subscribers,
             publication,
             subscriptions,
+            isSubscribe,
             descriptionUserName,
             descriptionAboutYourself,
             descriptionLink
-        } = user;
-        const { subscribers, isSubscribe } = this.state;
+        } = this.state;
         return <div className={style.Profile}>
             <div className={style.ProfileWrapp}>
                 <div className={style.avatar}>

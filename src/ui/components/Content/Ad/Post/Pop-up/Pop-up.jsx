@@ -13,14 +13,26 @@ class PopUp extends Component {
         super(props);
 
         this.state = {
-            isShow: false
+            image: '',
+            imageLike: 0,
+            comments: []
         };
     }
+    componentDidMount = () => {
+        this.setState((state, props) => {
+            return {
+                image: props.image,
+                imageLike: props.imageLike,
+                comments: props.comments
+            };
+        });
+    }
     render (props) {
-        const { image, comments, OutPopUp } = this.props;
-        const { isShow } = this.state;
+        const { image, comments } = this.state;
+        const { outPopUp } = this.props;
+        comments.reverse();
         return (<div className={classNames(styles.PopUpActive, styles.ShowItemWrapp)}>
-            <div className={styles.screen} onClick={() => OutPopUp(isShow)}></div>
+            <div className={styles.screen} onClick={() => outPopUp()}></div>
             <div className={styles.itemDetail}>
                 <div className={styles.itemImageDetail}>
                     <img className={styles.itemImg} src={image} />

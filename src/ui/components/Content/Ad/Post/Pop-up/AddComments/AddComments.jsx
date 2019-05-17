@@ -1,24 +1,42 @@
 import React, { Component } from 'react';
 
 import styles from './addComments.css';
+import user from '../../../../shared/user';
+
+import setPostInfo from '../../../../../../../actions/setPostInfo';
 
 class AddComments extends Component {
     constructor (props) {
         super(props);
 
         this.state = {
-            inputText: ''
+            inputText: '',
+            setComments: []
         };
     }
 
     hendlePushInput = (elem) => {
-        if (elem.key === 'Enter') {
+        if (elem.key === 'Enter' && this.state.inputText !== '') {
+            elem.preventDefault();
+            this.setState((state, props) => state.setComments.push({ avatar: user.userAvatar, users: user.userLogin, text: state.inputText, commentsLike: 0 }));
+            this.setState({ inputText: '' });
+            setPostInfo(this.state.setComments);
+            console.log(this.state.setComments);
+        } else if (elem.key === 'Enter' && this.state.inputText === '') {
             elem.preventDefault();
         }
     }
 
     hendleClickButton = (elem) => {
         elem.preventDefault();
+        this.setState((state, props) => state.setComments.push({ avatar: user.userAvatar, users: user.userLogin, text: state.inputText, commentsLike: 0 }));
+        this.setState({ inputText: '' });
+        setPostInfo(this.state.setComments);
+        /*
+        this.setState((state, props) => state.setComments.push({ avatar: user.userAvatar, users: user.userLogin, text: state.inputText, commentsLike: 0 }));
+        this.setState({ inputText: '' });
+        console.log(this.state.setComments);
+        */
     }
 
     hendleChangeInputText = (value) => {
@@ -26,7 +44,7 @@ class AddComments extends Component {
             inputText: value.target.value
         });
     }
-    render () {
+    render (props) {
         const { inputText } = this.state;
         return (
             <div className={styles.addComments}>

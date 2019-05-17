@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 
-import { tags } from '../tags';
-
 import Post from '../Post/Post.jsx';
 
 import styles from './tags.css';
 
 class Tags extends Component {
-    render () {
+    render (props) {
+        const { tags } = this.props;
         return (<div>
             <ul id={styles.AdContentWrapp}>
                 {

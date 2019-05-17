@@ -9,7 +9,10 @@ class Post extends Component {
         super(props);
 
         this.state = {
-            isShowPopUp: false
+            isShowPopUp: false,
+            image: '',
+            imageLike: 0,
+            imageComments: 0
         };
     }
     hendleClickItem = () => {
@@ -17,25 +20,36 @@ class Post extends Component {
             isShowPopUp: !this.state.isShowPopUp
         });
     }
-    hendleClickPopUp = (isClick) => {
+    hendleClickPopUp = () => {
         this.setState({
-            isShowPopUp: isClick
+            isShowPopUp: false
+        });
+    }
+
+    componentDidMount = () => {
+        this.setState((state, props) => {
+            return {
+                image: props.imgUrl,
+                imageLike: props.imgLike,
+                imageComments: props.comments
+            };
         });
     }
     render (props) {
-        const { imgUrl, imgLike, comments } = this.props;
+        const { image, imageLike, imageComments } = this.state;
         return (<li className={styles.item}>
-            <img className={styles.itemImage} src={imgUrl} />
+            <img className={styles.itemImage} src={image} />
             <div className={styles.itemInfo} onClick={this.hendleClickItem}>
-                <div className={styles.itemsInfo}><span id={styles.itemLikeImg}></span><h2>{imgLike}</h2></div>
-                <div className={styles.itemsInfo}><span id={styles.itemCommentsImg}></span><h2>{comments.length}</h2></div>
+                <div className={styles.itemsInfo}><span id={styles.itemLikeImg}></span><h2>{imageLike}</h2></div>
+                <div className={styles.itemsInfo}><span id={styles.itemCommentsImg}></span><h2>{imageComments.length}</h2></div>
             </div>
             {
                 this.state.isShowPopUp
                     ? <PopUp
-                        image={imgUrl}
-                        comments={comments}
-                        OutPopUp={this.hendleClickPopUp}
+                        outPopUp={this.hendleClickPopUp}
+                        image={image}
+                        comments={imageComments}
+                        imageLike={imageLike}
                     />
                     : <span></span>
             }

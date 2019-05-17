@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 
-import { posts } from '../posts';
-
 import Post from '../Post/Post.jsx';
 
 import styles from './posters.css';
 
 class Posters extends Component {
-    render () {
+    render (props) {
+        const { posts } = this.props;
         return (<ul id={styles.AdContentWrapp}>
             {
                 posts.map((item) =>
