@@ -58,7 +58,7 @@ class Ad extends Component {
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ setPosts }) => {
     return {
         posts: posts,
         tags: tags

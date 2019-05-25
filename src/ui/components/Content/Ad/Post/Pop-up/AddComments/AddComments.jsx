@@ -1,29 +1,45 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+import PropTypes from 'prop-types';
 
 import styles from './addComments.css';
-import user from '../../../../shared/user';
 
-import setPostInfo from '../../../../../../../actions/setPostInfo';
+import setPosts from '../../../../../../../actions/setPosts';
 
 class AddComments extends Component {
+    static propTypes = {
+        posts: PropTypes.array,
+        setPosts: PropTypes.func.isRequired
+    };
+
+    static defaultProps = {
+        posts: []
+    };
+
+    componentDidMount () {
+        this.props.setPosts();
+    };
     constructor (props) {
         super(props);
 
         this.state = {
             inputText: '',
-            setComments: []
+            posts: []
         };
     }
 
     hendlePushInput = (elem) => {
-        if (elem.key === 'Enter' && this.state.inputText !== '') {
-            elem.preventDefault();
-            this.setState((state, props) => state.setComments.push({ avatar: user.userAvatar, users: user.userLogin, text: state.inputText, commentsLike: 0 }));
-            this.setState({ inputText: '' });
-            setPostInfo(this.state.setComments);
-            console.log(this.state.setComments);
-        } else if (elem.key === 'Enter' && this.state.inputText === '') {
-            elem.preventDefault();
+        if (elem.key === 'Enter') {
+            if (this.state.inputText !== '') {
+                var setPosts = [];
+                elem.preventDefault();
+                this.setState((state, props) => setPosts.push({ avatar: user.userAvatar, users: user.userLogin, text: state.inputText, commentsLike: 0 }));
+                this.setState({ inputText: '' });
+                console.log(this.state.setComments);
+            } else if (this.state.inputText === '') {
+                elem.preventDefault();
+            }
         }
     }
 
@@ -31,12 +47,7 @@ class AddComments extends Component {
         elem.preventDefault();
         this.setState((state, props) => state.setComments.push({ avatar: user.userAvatar, users: user.userLogin, text: state.inputText, commentsLike: 0 }));
         this.setState({ inputText: '' });
-        setPostInfo(this.state.setComments);
-        /*
-        this.setState((state, props) => state.setComments.push({ avatar: user.userAvatar, users: user.userLogin, text: state.inputText, commentsLike: 0 }));
-        this.setState({ inputText: '' });
-        console.log(this.state.setComments);
-        */
+        setPosts(this.state.setComments);
     }
 
     hendleChangeInputText = (value) => {
@@ -70,4 +81,13 @@ class AddComments extends Component {
     }
 }
 
-export default AddComments;
+const mapStateToProps = ({ setPosts, user }) => {
+    return {
+        posts: setPosts.posts
+    };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+    setPosts: () => dispatch(setPosts())
+});
+export default connect(mapStateToProps, mapDispatchToProps)(AddComments);

@@ -1,36 +1,39 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
+import { connect } from 'react-redux';
 
 import styles from './Pop-up.css';
 
-import user from '../../../shared/user';
-
 import Comments from './Comments/Comments.jsx';
 import AddComments from './AddComments/AddComments.jsx';
+import setPosts from '../../../../../../actions/setPosts';
 
 class PopUp extends Component {
     constructor (props) {
         super(props);
 
         this.state = {
+            posts: [],
             image: '',
             imageLike: 0,
-            comments: []
+            imageComments: 0
         };
     }
     componentDidMount = () => {
         this.setState((state, props) => {
             return {
-                image: props.image,
-                imageLike: props.imageLike,
-                comments: props.comments
+                posts: props.posts,
+                image: this.props.image,
+                imageLike: this.props.imageLike,
+                imageComments: this.props.comments
             };
         });
     }
     render (props) {
-        const { image, comments } = this.state;
+        const { image, imageComments, imageLike } = this.state;
+        const { user } = this.props;
         const { outPopUp } = this.props;
-        comments.reverse();
+        console.log(imageComments);
         return (<div className={classNames(styles.PopUpActive, styles.ShowItemWrapp)}>
             <div className={styles.screen} onClick={() => outPopUp()}></div>
             <div className={styles.itemDetail}>
@@ -52,8 +55,9 @@ class PopUp extends Component {
                     <div className={styles.commentsWrapp}>
                         <ul>
                             {
-                                comments.map((comment) =>
+                                imageComments.map((comment) =>
                                     <Comments
+                                        key={comment.id}
                                         commentsUsersAvatar={comment.avatar}
                                         usersNames={comment.users}
                                         comment={comment.text}
@@ -77,5 +81,15 @@ class PopUp extends Component {
         </div>);
     };
 };
+const mapStateToProps = ({ setPosts, user }) => {
+    return {
+        posts: setPosts.posts,
+        user: user.user
+    };
+};
 
-export default PopUp;
+const mapDispatchToProps = (dispatch) => ({
+    setPosts: () => dispatch(setPosts())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(PopUp);

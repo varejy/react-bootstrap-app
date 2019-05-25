@@ -12,13 +12,16 @@ class Post extends Component {
             isShowPopUp: false,
             image: '',
             imageLike: 0,
-            imageComments: 0
+            imageComments: 0,
+            id: 0
         };
     }
-    hendleClickItem = () => {
+    hendleClickItem = () => (i) => {
         this.setState({
-            isShowPopUp: !this.state.isShowPopUp
+            isShowPopUp: !this.state.isShowPopUp,
+            id: i
         });
+        console.log(i)
     }
     hendleClickPopUp = () => {
         this.setState({
@@ -36,10 +39,10 @@ class Post extends Component {
         });
     }
     render (props) {
-        const { image, imageLike, imageComments } = this.state;
+        const { image, imageLike, imageComments, id } = this.state;
         return (<li className={styles.item}>
             <img className={styles.itemImage} src={image} />
-            <div className={styles.itemInfo} onClick={this.hendleClickItem}>
+            <div className={styles.itemInfo} onClick={this.hendleClickItem()}>
                 <div className={styles.itemsInfo}><span id={styles.itemLikeImg}></span><h2>{imageLike}</h2></div>
                 <div className={styles.itemsInfo}><span id={styles.itemCommentsImg}></span><h2>{imageComments.length}</h2></div>
             </div>
@@ -50,11 +53,11 @@ class Post extends Component {
                         image={image}
                         comments={imageComments}
                         imageLike={imageLike}
+                        id={id}
                     />
                     : <span></span>
             }
         </li>);
     }
 }
-
 export default Post;
