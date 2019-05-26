@@ -16,10 +16,7 @@ class AddComments extends Component {
     static defaultProps = {
         posts: []
     };
-
-    componentDidMount () {
-        this.props.setPosts();
-    };
+    
     constructor (props) {
         super(props);
 

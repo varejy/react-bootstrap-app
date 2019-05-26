@@ -48,7 +48,7 @@ class Profile extends Component {
         user: {}
     };
 
-    componentDidMount = () => {
+    componentWillMount = () => {
         this.setState((state, props) => {
             return {
                 user: props.user
@@ -57,7 +57,7 @@ class Profile extends Component {
     }
     render () {
         const { user } = this.state;
-        const { descriptionLinkUrl, descriptionLinkTxt } = this.props.user.descriptionLink;
+        const { descriptionLinkUrl, descriptionLinkTxt } = this.state.user.descriptionLink;
         return <div className={style.Profile}>
             <div className={style.ProfileWrapp}>
                 <div className={style.avatar}>

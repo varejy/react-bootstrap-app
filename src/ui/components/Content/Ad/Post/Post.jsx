@@ -12,16 +12,14 @@ class Post extends Component {
             isShowPopUp: false,
             image: '',
             imageLike: 0,
-            imageComments: 0,
+            comments: [],
             id: 0
         };
     }
-    hendleClickItem = () => (i) => {
+    hendleClickItem = () => {
         this.setState({
             isShowPopUp: !this.state.isShowPopUp,
-            id: i
         });
-        console.log(i)
     }
     hendleClickPopUp = () => {
         this.setState({
@@ -29,29 +27,31 @@ class Post extends Component {
         });
     }
 
-    componentDidMount = () => {
+    componentWillMount = () => {
         this.setState((state, props) => {
             return {
                 image: props.imgUrl,
                 imageLike: props.imgLike,
-                imageComments: props.comments
+                comments: props.comments,
+                id: props.id
             };
         });
     }
+
     render (props) {
-        const { image, imageLike, imageComments, id } = this.state;
+        const { image, imageLike, comments, id } = this.state;
         return (<li className={styles.item}>
             <img className={styles.itemImage} src={image} />
-            <div className={styles.itemInfo} onClick={this.hendleClickItem()}>
+            <div className={styles.itemInfo} onClick={this.hendleClickItem}>
                 <div className={styles.itemsInfo}><span id={styles.itemLikeImg}></span><h2>{imageLike}</h2></div>
-                <div className={styles.itemsInfo}><span id={styles.itemCommentsImg}></span><h2>{imageComments.length}</h2></div>
+                <div className={styles.itemsInfo}><span id={styles.itemCommentsImg}></span><h2>{comments.length}</h2></div>
             </div>
             {
                 this.state.isShowPopUp
                     ? <PopUp
                         outPopUp={this.hendleClickPopUp}
                         image={image}
-                        comments={imageComments}
+                        comments={comments}
                         imageLike={imageLike}
                         id={id}
                     />

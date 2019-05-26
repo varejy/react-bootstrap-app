@@ -13,27 +13,24 @@ class PopUp extends Component {
         super(props);
 
         this.state = {
-            posts: [],
             image: '',
             imageLike: 0,
-            imageComments: 0
+            comments: []
         };
-    }
-    componentDidMount = () => {
-        this.setState((state, props) => {
-            return {
-                posts: props.posts,
-                image: this.props.image,
-                imageLike: this.props.imageLike,
-                imageComments: this.props.comments
-            };
-        });
-    }
+    };
+
+    hendleClickLike = i => () => {
+        const { posts, setPosts } = this.props;
+
+        posts[i].imgLike += 1;
+
+        setPosts(posts);
+    };
+
     render (props) {
-        const { image, imageComments, imageLike } = this.state;
+        const { image, comments, imageLike, id } = this.props;
         const { user } = this.props;
         const { outPopUp } = this.props;
-        console.log(imageComments);
         return (<div className={classNames(styles.PopUpActive, styles.ShowItemWrapp)}>
             <div className={styles.screen} onClick={() => outPopUp()}></div>
             <div className={styles.itemDetail}>
@@ -55,7 +52,7 @@ class PopUp extends Component {
                     <div className={styles.commentsWrapp}>
                         <ul>
                             {
-                                imageComments.map((comment) =>
+                                comments.map((comment) =>
                                     <Comments
                                         key={comment.id}
                                         commentsUsersAvatar={comment.avatar}
@@ -69,7 +66,7 @@ class PopUp extends Component {
                     </div>
                     <div className={styles.itemOptions}>
                         <div className={styles.sharesButtons}>
-                            <div className={classNames(styles.likesIcon, styles.optionsIcons)}></div>
+                            <div className={classNames(styles.likesIcon, styles.optionsIcons)} onClick={this.hendleClickLike(id)}></div>
                             <div className={classNames(styles.commentsIcon, styles.optionsIcons)}></div>
                             <div className={classNames(styles.shareIcon, styles.optionsIcons)}></div>
                         </div>

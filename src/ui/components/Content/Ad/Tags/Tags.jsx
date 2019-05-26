@@ -10,8 +10,8 @@ class Tags extends Component {
         return (<div>
             <ul id={styles.AdContentWrapp}>
                 {
-                    tags.map((item) =>
-                        <Post key={item.id} imgUrl={item.imgUrl} imgLike={item.imgLike} comments={item.comments}/>
+                    tags.map((item, i) =>
+                        <Post key={item.id} id={i} imgUrl={item.imgUrl} imgLike={item.imgLike} comments={item.comments}/>
                     )
                 }
             </ul>

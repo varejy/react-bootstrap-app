@@ -13,18 +13,9 @@ class Comments extends Component {
             comment: ''
         };
     }
-    componentDidMount = () => {
-        this.setState((state, props) => {
-            return {
-                image: props.commentsUsersAvatar,
-                userNames: props.usersNames,
-                commentLike: props.commentLike,
-                comment: props.comment
-            };
-        });
-    }
+
     render () {
-        const { image, userNames, comment, commentLike } = this.state;
+        const { image, userNames, comment, commentLike } = this.props;
         return (
             <li className={styles.commentsWrapper}>
                 <div className={styles.InfoAvatar}>

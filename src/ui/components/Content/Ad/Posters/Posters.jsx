@@ -9,8 +9,8 @@ class Posters extends Component {
         const { posts } = this.props;
         return (<ul id={styles.AdContentWrapp}>
             {
-                posts.map((item) =>
-                    <Post key={item.id} imgUrl={item.imgUrl} imgLike={item.imgLike} comments={item.comments}/>
+                posts.map((item, i) =>
+                    <Post key={item.id} id={i} imgUrl={item.imgUrl} imgLike={item.imgLike} comments={item.comments}/>
                 )
             }
         </ul>);
