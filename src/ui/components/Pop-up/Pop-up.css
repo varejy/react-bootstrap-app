@@ -104,15 +104,17 @@
 }
 
 .itemOptions{
-    padding-top: 4px;
+    padding-top: 10px;
     padding-left: 16px;
     padding-right: 16px;
     margin-top: 4px;
     border-top: 1px solid #efefef;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    min-height: 40px;
+    align-items: start;
+    min-height: 46px;
+    width: 100%;
 }
 
 .sharesButtons{
@@ -126,6 +128,12 @@
     background-image: url('https://www.instagram.com/static/bundles/metro/sprite_glyphs_4d61c80848f3.png/4d61c80848f3.png');
     height: 24px;
     width: 24px;
+}
+
+.iconWrapp{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .likesIcon{
@@ -142,4 +150,16 @@
 
 .savesImage{
     background-position: -287px -130px;
+}
+
+.likes{
+    width: auto;
+    height: 24px;
+    color: #262626;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+    padding: 5px 0px 0px 10px;
 }

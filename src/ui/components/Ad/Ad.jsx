@@ -1,16 +1,30 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
-import Tags from './Tags/Tags.jsx';
-import Posters from './Posters/Posters.jsx';
+import setPosts from '../../../actions/setPosts';
 
-import { posts } from './posts';
-import { tags } from './tags';
+import Tags from '../Tags/Tags.jsx';
+import Posters from '../Posters/Posters.jsx';
+
+import { postsArray } from '../postsArray';
+import { tagsArray } from '../tagsArray';
 
 import styles from './ad.css';
 
 class Ad extends Component {
+    static propTypes = {
+        posts: PropTypes.object,
+        tags: PropTypes.object,
+        setPosts: PropTypes.func.isRequired
+    };
+
+    static defaultProps = {
+        posts: {},
+        tags: {}
+    };
+
     constructor (props) {
         super(props);
 
@@ -28,6 +42,13 @@ class Ad extends Component {
     handleNavTagsClick = () => {
         this.setState({
             isMain: false
+        });
+    }
+
+    componentWillMount = () => {
+        this.props.setPosts({
+            posts: postsArray,
+            tags: tagsArray
         });
     }
     render () {
@@ -58,11 +79,14 @@ class Ad extends Component {
     }
 }
 
-const mapStateToProps = ({ setPosts }) => {
+const mapStateToProps = ({ posts }) => {
     return {
-        posts: posts,
-        tags: tags
+        posts: posts.posts
     };
 };
 
-export default connect(mapStateToProps)(Ad);
+const mapDispatchToProps = (dispatch) => ({
+    setPosts: (payload) => dispatch(setPosts(payload))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Ad);

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import Profile from './Profile/Profile.jsx';
-import Ad from './Ad/Ad.jsx';
+import Profile from '../Profile/Profile.jsx';
+import Ad from '../Ad/Ad.jsx';
 
 import style from './Content.css';
 

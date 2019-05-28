@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 
 import application from './application';
-import setPosts from './setPosts';
+import posts from './posts';
 import user from './user';
 
 const reducers = combineReducers({
     application,
-    setPosts,
+    posts,
     user
 });
 

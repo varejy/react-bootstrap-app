@@ -1,12 +1,10 @@
 .addComments{
     display: flex;
-    margin-top: 8px;
+    margin-top: 14px;
     padding-left: 16px;
     padding-right: 16px;
     border-top: 1px solid #efefef;
     color: #999;
-    -webkit-flex-shrink: 0;
-    -ms-flex-negative: 0;
     flex-shrink: 0;
     font-size: 14px;
     line-height: 18px;

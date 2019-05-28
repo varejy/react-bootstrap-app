@@ -1,11 +1,9 @@
 import {
-    SET_POST,
-    SET_TAGS
+    SET_POST
 } from '../types/types';
 
 const initialState = {
-    posts: [],
-    tags: []
+    posts: []
 };
 
 export default function (state = initialState, action) {
@@ -14,11 +12,6 @@ export default function (state = initialState, action) {
         return {
             ...state,
             posts: action.payload
-        };
-    case SET_TAGS:
-        return {
-            ...state,
-            tags: action.payload
         };
     default:
         return state;

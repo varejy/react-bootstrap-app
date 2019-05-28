@@ -5,18 +5,17 @@ import PropTypes from 'prop-types';
 
 import styles from './addComments.css';
 
-import setPosts from '../../../../../../../actions/setPosts';
+import setPosts from '../../../actions/setPosts';
 
 class AddComments extends Component {
     static propTypes = {
-        posts: PropTypes.array,
+        posts: PropTypes.object,
         setPosts: PropTypes.func.isRequired
     };
 
     static defaultProps = {
         posts: []
     };
-    
     constructor (props) {
         super(props);
 
@@ -33,7 +32,6 @@ class AddComments extends Component {
                 elem.preventDefault();
                 this.setState((state, props) => setPosts.push({ avatar: user.userAvatar, users: user.userLogin, text: state.inputText, commentsLike: 0 }));
                 this.setState({ inputText: '' });
-                console.log(this.state.setComments);
             } else if (this.state.inputText === '') {
                 elem.preventDefault();
             }
@@ -78,9 +76,9 @@ class AddComments extends Component {
     }
 }
 
-const mapStateToProps = ({ setPosts, user }) => {
+const mapStateToProps = ({ posts, user }) => {
     return {
-        posts: setPosts.posts
+        posts: posts.posts
     };
 };
 

@@ -4,37 +4,25 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import style from './Profile.css';
-import setUser from '../../../../actions/setUser';
+import setUser from '../../../actions/setUser';
 
 class Profile extends Component {
     state = {
-        user: {}
-    };
-
+        descriptionLink: {}
+    }
     handleSubscribeClick = () => {
-        if (!this.state.user.isSubscribe) {
-            this.setState((state, props) => {
-                return {
-                    user: {
-                        ...state.user,
-                        isSubscribe: true,
-                        subscribers: state.user.subscribers + 1
-                    }
-                };
-            }, () => {
-                this.props.setUser(this.state.user);
+        const { user } = this.props;
+        if (!this.props.user.isSubscribe) {
+            this.props.setUser({
+                ...user,
+                subscribers: user.subscribers + 1,
+                isSubscribe: !user.isSubscribe
             });
-        } else if (this.state.user.isSubscribe) {
-            this.setState((state, props) => {
-                return {
-                    user: {
-                        ...state.user,
-                        isSubscribe: false,
-                        subscribers: state.user.subscribers - 1
-                    }
-                };
-            }, () => {
-                this.props.setUser(this.state.user);
+        } else if (this.props.user.isSubscribe) {
+            this.props.setUser({
+                ...user,
+                subscribers: user.subscribers - 1,
+                isSubscribe: !user.isSubscribe
             });
         }
     }
@@ -48,16 +36,8 @@ class Profile extends Component {
         user: {}
     };
 
-    componentWillMount = () => {
-        this.setState((state, props) => {
-            return {
-                user: props.user
-            };
-        });
-    }
     render () {
-        const { user } = this.state;
-        const { descriptionLinkUrl, descriptionLinkTxt } = this.state.user.descriptionLink;
+        const { user, user: { descriptionLink: { descriptionLinkUrl, descriptionLinkTxt } } } = this.props;
         return <div className={style.Profile}>
             <div className={style.ProfileWrapp}>
                 <div className={style.avatar}>
@@ -107,6 +87,8 @@ const mapStateToProps = ({ user }) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-    setUser: () => dispatch(setUser())
+    setUser: (payload) => {
+        dispatch(setUser(payload));
+    }
 });
 export default connect(mapStateToProps, mapDispatchToProps)(Profile);
