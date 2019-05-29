@@ -3,7 +3,7 @@ import {
 } from '../types/types';
 
 const initialState = {
-    posts: []
+    posts: {}
 };
 
 export default function (state = initialState, action) {

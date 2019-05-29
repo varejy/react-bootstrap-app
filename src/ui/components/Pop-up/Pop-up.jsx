@@ -71,7 +71,7 @@ class PopUp extends Component {
     };
     render (props) {
         const { image, id, howMarked } = this.props;
-        const { comments, imgLike } = howMarked === 'postsArray' ? this.props.posts.posts[id] : this.props.posts.tags[id];
+        const { comments, imgLike, isLike } = howMarked === 'postsArray' ? this.props.posts.posts[id] : this.props.posts.tags[id];
         const { user } = this.props;
         const { outPopUp } = this.props;
         return (<div className={classNames(styles.PopUpActive, styles.ShowItemWrapp)}>
@@ -93,24 +93,29 @@ class PopUp extends Component {
                         <div className={styles.InfoHeaderOptions}></div>
                     </header>
                     <div className={styles.commentsWrapp}>
-                        <ul>
-                            {
-                                comments.map((comment) =>
-                                    <Comments
-                                        key={comment.id}
-                                        commentsUsersAvatar={comment.avatar}
-                                        usersNames={comment.users}
-                                        comment={comment.text}
-                                        commentLike={comment.commentLike}
-                                    />
-                                )
-                            }
-                        </ul>
+                        <div className={styles.comments}>
+                            <ul>
+                                {
+                                    comments.map((comment) =>
+                                        <Comments
+                                            key={comment.id}
+                                            commentsUsersAvatar={comment.avatar}
+                                            usersNames={comment.users}
+                                            comment={comment.text}
+                                            commentLike={comment.commentLike}
+                                        />
+                                    )
+                                }
+                            </ul>
+                        </div>
                     </div>
                     <div className={styles.itemOptions}>
                         <div className={styles.iconWrapp}>
                             <div className={styles.sharesButtons}>
-                                <div className={classNames(styles.likesIcon, styles.optionsIcons)} onClick={this.hendleClickLike(id, howMarked)}></div>
+                                <div
+                                    className={classNames(styles.likesIcon, styles.optionsIcons, { [styles.likesIconActive]: isLike })}
+                                    onClick={this.hendleClickLike(id, howMarked)}
+                                ></div>
                                 <div className={classNames(styles.commentsIcon, styles.optionsIcons)}></div>
                                 <div className={classNames(styles.shareIcon, styles.optionsIcons)}></div>
                             </div>
@@ -118,7 +123,7 @@ class PopUp extends Component {
                         </div>
                         <div className={styles.likes}><span>{imgLike}</span> { imgLike < 2 && imgLike > 0 ? 'отметка' : 'отметок' } "Нравится"</div>
                     </div>
-                    <AddComments/>
+                    <AddComments id={id} howMarked={howMarked}/>
                 </div>
             </div>
         </div>);

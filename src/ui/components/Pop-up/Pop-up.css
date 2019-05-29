@@ -32,6 +32,7 @@
     display: flex;
     width: fit-content;
     z-index: 10;
+    max-height: 600px;
 }
 
 .itemImageDetail{
@@ -44,7 +45,7 @@
 
 .itemImg{
     max-width: 600px;
-    max-height: -webkit-fill-available;
+    max-height: 600px;
 }
 
 .itemInfoWrapp{
@@ -101,13 +102,15 @@
 
 .commentsWrapp{
     height: 63%;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .itemOptions{
     padding-top: 10px;
     padding-left: 16px;
     padding-right: 16px;
-    margin-top: 4px;
+    margin-top: 0px;
     border-top: 1px solid #efefef;
     display: flex;
     flex-direction: column;
@@ -138,6 +141,11 @@
 
 .likesIcon{
     background-position: -156px -211px;
+}
+
+.likesIconActive {
+    background-image: url('https://www.instagram.com/static/bundles/metro/sprite_glyphs_732af3e467e9.png/732af3e467e9.png');
+    background-position: -271px -208px;
 }
 
 .commentsIcon{
