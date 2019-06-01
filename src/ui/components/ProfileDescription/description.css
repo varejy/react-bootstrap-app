@@ -1,0 +1,28 @@
+.subscriptionsInfo{
+    @media (--media-phone) {
+        display: none
+    }
+}
+
+.subsInfo {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.ProfileInfoItem{
+    font-size: 16px;
+    margin-right: 40px;
+    color: #262626;
+}
+
+.ProfileInfoItem:last-child{
+    margin-right: 0px;
+}
+
+.subsInfo .ProfileInfoItem .subscriptInfo{
+    font-weight: 600;
+    color: #262626;
+}

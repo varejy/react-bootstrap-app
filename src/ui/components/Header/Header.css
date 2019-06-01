@@ -76,6 +76,7 @@
 }
 
 .break{
+    display: block;
     background-color: #262626;
     height: 28px;
     margin: 0 16px;
@@ -83,11 +84,18 @@
 }
 
 .headerTitle{
+    display: block;
     background-repeat: no-repeat;
     background-position: 0 -146px;
     height: 29px;
     width: 103px;
     cursor: pointer;
+}
+
+.headerInputWrapp{
+    @media (--media-phone) {
+            display: none;
+    }
 }
 
 .headerInputWrapper{
@@ -206,6 +214,7 @@
 
 @keyframes HeaderDisplayN {
     from{
+        display: block;
         opacity: 1;
     }
     to{
@@ -216,6 +225,7 @@
 
 @keyframes HeaderDisplay {
     from{
+        display: none;
         opacity: 0;
     }
     to{

@@ -3,12 +3,16 @@ import classNames from 'classnames';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import ProfileDescription from '../ProfileDescription/Description';
+import DescriptionMobile from '../ProfileDescriptionMobile/DescriptionMobile';
+
 import style from './Profile.css';
 import setUser from '../../../actions/setUser';
 
 class Profile extends Component {
     state = {
-        descriptionLink: {}
+        descriptionLink: {},
+        isShowMobileDescription: false
     }
     handleSubscribeClick = () => {
         const { user } = this.props;
@@ -36,8 +40,17 @@ class Profile extends Component {
         user: {}
     };
 
+    componentDidMount () {
+        if (window.innerWidth < 768) {
+            this.setState({
+                isShowMobileDescription: !this.state.isShowMobileDescription
+            });
+        }
+    }
+
     render () {
         const { user, user: { descriptionLink: { descriptionLinkUrl, descriptionLinkTxt } } } = this.props;
+        const { isShowMobileDescription } = this.state;
         return <div className={style.Profile}>
             <div className={style.ProfileWrapp}>
                 <div className={style.avatar}>
@@ -45,8 +58,10 @@ class Profile extends Component {
                 </div>
                 <div className={style.info}>
                     <div className={style.header}>
-                        <h1 className={style.nickname}>{ user.userLogin }</h1>
-                        <span className={classNames(style.confirmationLogo, style.imageLog)}></span>
+                        <div className={style.headerUserLogin}>
+                            <h1 className={style.nickname}>{ user.userLogin }</h1>
+                            <span className={classNames(style.confirmationLogo, style.imageLog)}></span>
+                        </div>
                         <div className={style.buttons}>
                             <button
                                 className={classNames(style.NotSubscribe, { [style.subscribe]: user.isSubscribe })}
@@ -63,17 +78,15 @@ class Profile extends Component {
                             </button>
                         </div>
                     </div>
-                    <div className={style.subscriptionsInfo}>
-                        <ul className={style.subsInfo}>
-                            <li className={style.ProfileInfoItem}><span className={style.subscriptInfo}>{ user.publication }</span> публикаций</li>
-                            <li className={style.ProfileInfoItem}><span className={style.subscriptInfo}>{ user.subscribers }</span> подписчиков</li>
-                            <li className={style.ProfileInfoItem}>Подписки: <span className={style.subscriptInfo}>{ user.subscriptions }</span></li>
-                        </ul>
-                    </div>
-                    <div className={style.description}>
-                        <h1 className={style.descriptionChild}>{ user.descriptionUserName }</h1>
-                        <span className={style.descriptionChild}>{ user.descriptionAboutYourself }</span>
-                        <a className={style.descriptionChild} href={ descriptionLinkUrl }>{ descriptionLinkTxt }</a>
+                    <div className={classNames(isShowMobileDescription ? style.descriptionWrappMobile : style.descriptionWrapp)}>
+                        {
+                            isShowMobileDescription ? <DescriptionMobile user={user} /> : <ProfileDescription user={user} />
+                        }
+                        <div className={style.description}>
+                            <h1 className={style.descriptionChild}>{user.descriptionUserName}</h1>
+                            <span className={style.descriptionChild}>{user.descriptionAboutYourself}</span>
+                            <a className={style.descriptionChild} href={descriptionLinkUrl}>{descriptionLinkTxt}</a>
+                        </div>
                     </div>
                 </div>
             </div>

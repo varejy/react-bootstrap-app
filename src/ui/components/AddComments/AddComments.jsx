@@ -62,24 +62,29 @@ class AddComments extends Component {
     }
 
     hendleClickButton = (elem) => {
-        const { posts } = this.props;
-        const post = this.props.howMarked === 'postsArray' ? posts.posts : posts.tags;
-        const { id, user, setPosts } = this.props;
-        const { inputText } = this.state;
-        elem.preventDefault();
-        post[id].comments.push({
-            avatar: user.userAvatar,
-            users: user.userLogin,
-            id: post[id].comments.length + 1,
-            text: inputText,
-            commentLike: 0,
-            isLike: false
-        });
-        setPosts({
-            ...posts,
-            post
-        });
-        this.setState({ inputText: '' });
+        if (this.state.inputText === '') {
+            elem.preventDefault();
+            this.setState({ inputText: '' });
+        } else {
+            const { posts } = this.props;
+            const post = this.props.howMarked === 'postsArray' ? posts.posts : posts.tags;
+            const { id, user, setPosts } = this.props;
+            const { inputText } = this.state;
+            elem.preventDefault();
+            post[id].comments.push({
+                avatar: user.userAvatar,
+                users: user.userLogin,
+                id: post[id].comments.length + 1,
+                text: inputText,
+                commentLike: 0,
+                isLike: false
+            });
+            setPosts({
+                ...posts,
+                post
+            });
+            this.setState({ inputText: '' });
+        }
     }
 
     hendleChangeInputText = (value) => {

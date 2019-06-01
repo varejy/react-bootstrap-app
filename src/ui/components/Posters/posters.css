@@ -1,6 +1,14 @@
 #AdContentWrapp{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    flex-basis: 293px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 28px;
+    @media (--media-tablet-l) {
+        grid-template-columns: 1fr;
+    };
+    @media (--media-desktop) {
+        grid-template-columns: 1fr 1fr;
+    };
+    @media (--media-desktop-m) {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
 }

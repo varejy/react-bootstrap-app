@@ -104,6 +104,12 @@
     height: 63%;
     overflow-x: hidden;
     overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.commentsWrapp::-webkit-scrollbar { 
+    display: none; 
 }
 
 .itemOptions{

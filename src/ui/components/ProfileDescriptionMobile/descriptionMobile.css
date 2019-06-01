@@ -1,0 +1,34 @@
+.subscriptionsInfo{
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid #efefef;
+    padding: 12px 0;
+    margin-left: -81px;
+}
+
+.subsInfo {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.ProfileInfoItem{
+    margin-right: 40px;
+    color: #999;
+    font-size: 14px;
+    text-align: center;
+    width: 33.3%;
+    display: flex;
+    flex-direction: column;
+}
+
+.ProfileInfoItem:last-child{
+    margin-right: 0px;
+}
+
+.subsInfo .ProfileInfoItem .subscriptInfo{
+    font-weight: 600;
+    color: #262626;
+}

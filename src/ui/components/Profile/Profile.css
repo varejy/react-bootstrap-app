@@ -1,19 +1,33 @@
 .Profile{
     height: 198px;
+    @media (--media-phone) {
+        margin-bottom: 16px;
+    }
 }
 
 .ProfileWrapp{
     height: 100%;
     display: flex;
     flex-direction: row;
+    @media (--media-phone) {
+        justify-content: center;
+    }
 }
 
 .avatar{
-    width: 291.67px;
+    width: 26%;
     height: 100%;
     margin-right: 30px;
     display: flex;
     justify-content: center;
+    @media (--media-phone) {
+        width: 77px;
+        height: 77px;
+        margin-right: 5px;
+    }
+    @media (--media-desktop-s){
+        width: 291.67px;
+    }
 }
 
 .imageLog{
@@ -25,13 +39,24 @@
     height: 150px;
     border-radius: 100px;
     background-position: 0px 0px; 
+    @media (--media-phone) {
+        width: 77px;
+        height: 77px;
+    }
 }
 
 .info{
-    width: 613.33px;
+    width: 80%;
     height: 100%;
     display: flex;
     flex-direction: column;
+    @media (--media-phone) {
+        width: 66%;
+    }
+    @media (--media-desktop-s){
+        width: 613.33px;
+    }
+
 }
 
 .header{
@@ -39,9 +64,20 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-        @media (min-width: 736px){
-            margin-bottom: 20px;
-        }
+    margin-bottom: 20px;
+    @media (--media-phone) {
+        flex-direction: column;
+        height: 81px;
+        align-items: start;
+        transform: scale(0.8,0.8)
+    }
+}
+
+.headerUserLogin{
+    display: flex;
+    @media (--media-phone) {
+        margin-bottom: 20px;
+    }
 }
 
 .nickname{
@@ -59,6 +95,9 @@
 .buttons{
     margin-left: 20px;
     display: flex;
+    @media (--media-phone) {
+        margin-left: 0px;
+    }
 }
 
 .NotSubscribe{
@@ -128,38 +167,23 @@
     width: 8px;
 }
 
-.subscriptionsInfo{
-
-}
-
-.subsInfo {
+.descriptionWrapp{
     display: flex;
-    justify-content: flex-start;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 20px;
+    flex-direction: column;
 }
 
-.ProfileInfoItem{
-    font-size: 16px;
-    margin-right: 40px;
-    color: #262626;
+.descriptionWrappMobile{
+    display: flex;
+    flex-direction: column-reverse;
 }
-
-.ProfileInfoItem:last-child{
-    margin-right: 0px;
-}
-
-.subsInfo .ProfileInfoItem .subscriptInfo{
-    font-weight: 600;
-    color: #262626;
-}
-
 .description{
     display:flex;
     justify-content: flex-start;
     flex-direction: column;
     align-items: flex-start;
+    @media (--media-phone) {
+        margin-left: -81px;
+    }
 }
 
 .descriptionChild{
