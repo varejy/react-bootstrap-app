@@ -3,14 +3,14 @@ import classNames from 'classnames';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import styles from './Pop-up.css';
+import styles from './mobilePopUp.css';
 
 import Comments from '../Comments/Comments.jsx';
 import AddComments from '../AddComments/AddComments.jsx';
 import setPosts from '../../../actions/setPosts';
 import setTags from '../../../actions/setTags';
 
-class PopUp extends Component {
+class MobilePopUp extends Component {
     static propTypes = {
         image: PropTypes.string,
         howMarked: PropTypes.string,
@@ -86,20 +86,15 @@ class PopUp extends Component {
     render (props) {
         const { howMarked, user, outPopUp } = this.props;
         const { itemId } = this.state;
-        const ArrayItems = howMarked === 'postsArray' ? this.props.posts.posts : this.props.posts.tags;
         const { imgUrl, comments, imgLike, isLike } = howMarked === 'postsArray' ? this.props.posts.posts[itemId] : this.props.posts.tags[itemId];
         return (<div className={classNames(styles.PopUpActive, styles.ShowItemWrapp)}>
-            <div className={styles.screen} onClick={() => outPopUp()}></div>
-            {
-                itemId === 0
-                    ? <span></span>
-                    : <div className={classNames(styles.leftButtonPopUp, styles.buttonsPopUp)} onClick={this.hendleClickLeftButton}></div>
-            }
+            <div className={styles.screen}></div>
             <div className={styles.itemDetail}>
-                <div className={styles.itemImageDetail}>
-                    <img className={styles.itemImg} src={imgUrl} />
-                </div>
                 <div className={styles.itemInfoWrapp}>
+                    <header className={styles.exitHeader}>
+                        <div className={styles.exitHeaderButton} onClick={() => outPopUp()}></div>
+                        <div className={styles.exitHeaderUserLogin}>Фото</div>
+                    </header>
                     <header className={styles.itemInfoHeader}>
                         <div className={styles.itemInfoHeaderUser}>
                             <div className={styles.InfoHeaderAvatar}>
@@ -111,6 +106,24 @@ class PopUp extends Component {
                         </div>
                         <div className={styles.InfoHeaderOptions}></div>
                     </header>
+                    <div className={styles.itemImageDetail}>
+                        <img className={styles.itemImg} src={imgUrl} />
+                    </div>
+                    <div className={styles.itemOptions}>
+                        <div className={styles.iconWrapp}>
+                            <div className={styles.sharesButtons}>
+                                <div
+                                    className={classNames(styles.likesIcon, styles.optionsIcons, { [styles.likesIconActive]: isLike })}
+                                    onClick={this.hendleClickLike(howMarked)}
+                                ></div>
+                                <div className={classNames(styles.commentsIcon, styles.optionsIcons)}></div>
+                                <div className={classNames(styles.shareIcon, styles.optionsIcons)}></div>
+                            </div>
+                            <div className={classNames(styles.savesImage, styles.optionsIcons)}></div>
+                        </div>
+                        <div className={styles.likes}><span>{imgLike}</span> { imgLike === 1 ? 'отметка' : 'отметок' } "Нравится"</div>
+                    </div>
+                    <AddComments id={itemId} howMarked={howMarked}/>
                     <div className={styles.commentsWrapp}>
                         <div className={styles.comments}>
                             <ul>
@@ -128,28 +141,8 @@ class PopUp extends Component {
                             </ul>
                         </div>
                     </div>
-                    <div className={styles.itemOptions}>
-                        <div className={styles.iconWrapp}>
-                            <div className={styles.sharesButtons}>
-                                <div
-                                    className={classNames(styles.likesIcon, styles.optionsIcons, { [styles.likesIconActive]: isLike })}
-                                    onClick={this.hendleClickLike(howMarked)}
-                                ></div>
-                                <div className={classNames(styles.commentsIcon, styles.optionsIcons)}></div>
-                                <div className={classNames(styles.shareIcon, styles.optionsIcons)}></div>
-                            </div>
-                            <div className={classNames(styles.savesImage, styles.optionsIcons)}></div>
-                        </div>
-                        <div className={styles.likes}><span>{imgLike}</span> { imgLike === 1 ? 'отметка' : 'отметок' } "Нравится"</div>
-                    </div>
-                    <AddComments id={itemId} howMarked={howMarked}/>
                 </div>
             </div>
-            {
-                itemId === ArrayItems.length - 1
-                    ? <span></span>
-                    : <div className={classNames(styles.rightButtonPopUp, styles.buttonsPopUp)} onClick={this.hendleClickRightButton}></div>
-            }
         </div>);
     };
 };
@@ -165,4 +158,4 @@ const mapDispatchToProps = (dispatch) => ({
     setTags: (payload) => dispatch(setTags(payload))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(PopUp);
+export default connect(mapStateToProps, mapDispatchToProps)(MobilePopUp);

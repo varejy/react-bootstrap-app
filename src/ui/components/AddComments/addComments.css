@@ -14,8 +14,9 @@
 
 .addCommentsWrapper{
     -webkit-box-align: stretch;
-    webkit-align-items: stretch;
+    -webkit-align-items: stretch;
     -ms-flex-align: stretch;
+    width: 100%;
     align-items: stretch;
     border: 0 solid #000;
     -webkit-box-sizing: border-box;
@@ -35,6 +36,7 @@
 }
 
 .addCommentsForm{
+    width: 100%;
     -webkit-flex-direction: row;
     -ms-flex-direction: row;
     flex-direction: row;

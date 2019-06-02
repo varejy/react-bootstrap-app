@@ -10,6 +10,20 @@
     position: relative;
 }
 
+@supports (display: -ms-grid) {
+    .item{
+        width: 293px;
+        height: 293px;
+        margin: 0px 0px 28px 0px;
+        display: flex;
+        position: relative;
+        @media (--media-desktop-m) {
+            margin: 0px 0px 28px 0px;
+        }
+    }
+    
+}
+
 .item:last-child{
     flex-grow: 17;
 }

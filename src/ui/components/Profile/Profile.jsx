@@ -41,7 +41,7 @@ class Profile extends Component {
     };
 
     componentDidMount () {
-        if (window.innerWidth < 768) {
+        if (window.innerWidth < 598) {
             this.setState({
                 isShowMobileDescription: !this.state.isShowMobileDescription
             });

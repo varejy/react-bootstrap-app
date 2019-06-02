@@ -1,14 +1,31 @@
 #AdContentWrapp{
     display: grid;
+    display: -ms-grid;
+    -ms-grid-columns: 1fr 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 28px;
     @media (--media-tablet-l) {
         grid-template-columns: 1fr;
+        -ms-grid-columns: 1fr;
     };
     @media (--media-desktop) {
         grid-template-columns: 1fr 1fr;
+        -ms-grid-columns: 1fr 1fr;
     };
     @media (--media-desktop-m) {
         grid-template-columns: 1fr 1fr 1fr;
+        -ms-grid-columns: 1fr 1fr 1fr;
+    }
+}
+
+@supports (display: -ms-grid) {
+    #AdContentWrapp{
+        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        @media (--media-desktop-m) {
+            justify-content: space-between;
+        }
     }
 }
