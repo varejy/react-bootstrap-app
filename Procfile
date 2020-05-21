@@ -1,1 +1,2 @@
-web: yarn && yarn server && yarn static
+web: npm i
+web: npm start
