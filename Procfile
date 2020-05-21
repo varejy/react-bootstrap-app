@@ -1,3 +1,1 @@
-web: yarn
-web: yarn server
-web: yarn static
+web: yarn && yarn server && yarn static
