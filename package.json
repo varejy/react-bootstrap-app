@@ -6,8 +6,7 @@
   "scripts": {
     "lint": "eslint src server --ext .js,.jsx",
     "lint-fix": "eslint src server --ext .js,.jsx --fix",
-    "static": "prun static",
-    "server": "prun server",
+    "start": "prun server && prun static",
     "build:static:dev": "prun build:static:dev",
     "build:static:prod": "prun build:static:prod",
     "build:server:dev": "prun build:server:dev",
