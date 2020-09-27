@@ -9,13 +9,12 @@ import { renderToString } from 'react-dom/server';
 
 import map from '@tinkoff/utils/array/map';
 
-import exampleApi from './api/example';
 import actions from './actions';
 import getStore from '../src/store/getStore';
 import renderPage from '../index';
 
 import { Provider } from 'react-redux';
-import { StaticRouter } from 'react-router-dom';
+import { StaticRouter } from 'react-router';
 import Helmet from 'react-helmet';
 import App from '../src/App.jsx';
 
@@ -38,9 +37,6 @@ app.use(cookieParser());
 app.use('/favicon.ico', function (req, res) {
     res.end('Not found!');
 });
-
-// api
-app.use('/api/example', exampleApi);
 
 // index
 app.get('*', function (req, res) {
